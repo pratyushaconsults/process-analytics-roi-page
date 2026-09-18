@@ -395,17 +395,17 @@
       line-height: 1.65;
     }
 
-    /* Section 3: Operational Impact & Proof Banner */
+    /* Section 3: Open Layout & Contrast Callouts */
     .impact-section {
       max-width: 1120px;
-      margin: 0 auto 100px;
+      margin: 20px auto 100px;
       padding: 0 24px;
     }
 
     .impact-header-block {
       text-align: center;
       max-width: 780px;
-      margin: 0 auto 40px;
+      margin: 0 auto 48px;
     }
 
     .impact-eyebrow {
@@ -422,7 +422,7 @@
       font-size: clamp(1.6rem, 2.5vw, 2.2rem);
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       line-height: 1.25;
     }
 
@@ -432,133 +432,140 @@
       line-height: 1.6;
     }
 
-    /* 4-Card Horizontal Grid */
-    .impact-grid {
+    /* Open Borderless 4-Column Strip */
+    .impact-open-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 28px;
+      gap: 32px;
+      margin-bottom: 56px;
     }
 
-    @media (max-width: 1024px) {
-      .impact-grid {
+    @media (max-width: 900px) {
+      .impact-open-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
       }
     }
 
-    @media (max-width: 640px) {
-      .impact-grid {
+    @media (max-width: 560px) {
+      .impact-open-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .impact-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    .impact-item {
+      border-top: 2px solid #1e334d;
+      padding-top: 20px;
+      transition: border-color 0.2s ease;
     }
 
-    .impact-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.4);
+    .impact-item:hover {
+      border-top-color: var(--accent-cyan);
     }
 
-    .impact-metric-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      margin-bottom: 10px;
-    }
-
-    .impact-card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .impact-card-desc {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* Proof Banner */
-    .proof-banner {
-      background: #0b1726;
-      border: 1px solid #1a314d;
-      border-radius: 14px;
-      padding: 32px 36px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 36px;
-    }
-
-    @media (max-width: 860px) {
-      .proof-banner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .proof-divider {
-        display: none;
-      }
-    }
-
-    .proof-divider {
-      width: 1px;
-      height: 100%;
-      min-height: 80px;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .proof-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .proof-label {
+    .impact-category {
       font-size: 0.72rem;
-      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent-orange);
-      margin-bottom: 10px;
-    }
-
-    .proof-quote {
-      font-size: 0.98rem;
-      font-weight: 500;
-      color: #ffffff;
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    .proof-stat-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #ffffff;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      display: block;
       margin-bottom: 8px;
     }
 
-    .proof-stat-desc {
+    .impact-item-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .impact-item-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Proof Contrast Row */
+    .proof-contrast-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 860px) {
+      .proof-contrast-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contrast-quote {
+      background: rgba(255, 107, 53, 0.04);
+      border-left: 3px solid var(--accent-orange);
+      border-radius: 0 12px 12px 0;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .label-orange {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-orange);
+      margin-bottom: 12px;
+    }
+
+    .quote-body {
+      font-size: 1.05rem;
+      color: #ffffff;
+      line-height: 1.6;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .contrast-stat-card {
+      background: var(--card-feature-bg);
+      border: 1px solid var(--card-feature-border);
+      border-radius: 12px;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .label-blue {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+    }
+
+    .big-stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .stat-unit {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .stat-body {
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
-    }
-
-    .proof-stat-desc strong {
-      color: var(--accent-cyan);
-      display: block;
-      margin-top: 4px;
-      font-weight: 500;
     }
   </style>
 </head>
@@ -571,7 +578,7 @@
       <span class="brand-tag">SPC Intelligence</span>
     </div>
     <div class="trust-pill">
-      Trusted by 35% of Forbes 1000 Manufacturers[cite: 4]
+      Trusted by 35% of Forbes 1000 Manufacturers
     </div>
   </header>
 
@@ -585,7 +592,7 @@
     </h1>
 
     <p class="subheadline">
-      Connect your existing process data to separate meaningful process signals from instrument noise and catch genuine shifts before they become costly problems[cite: 4]. Real-time SPC built for engineers and operators — no data science degree needed[cite: 4].
+      Connect your existing process data to separate meaningful process signals from instrument noise and catch genuine shifts before they become costly problems. Real-time SPC built for engineers and operators — no data science degree needed.
     </p>
 
     <!-- Visual Simulation Component -->
@@ -601,7 +608,7 @@
           </div>
           <div class="col-impact">
             <strong>Operational Impact</strong>
-            Chronic alarm fatigue, ignored warnings, and unnecessary manual adjustments on stable lines[cite: 4].
+            Chronic alarm fatigue, ignored warnings, and unnecessary manual adjustments on stable lines.
           </div>
         </div>
 
@@ -615,7 +622,7 @@
           </div>
           <div class="col-impact">
             <strong>Operational Impact</strong>
-            Clearer process signals that help teams identify abnormal variation, investigate causes, and act before issues affect product quality[cite: 4].
+            Clearer process signals that help teams identify abnormal variation, investigate causes, and act before issues affect product quality.
           </div>
         </div>
       </div>
@@ -646,7 +653,7 @@
         </svg>
       </a>
       <p class="micro-copy">
-        Delivered in a 30-minute consultative session <span>•</span> Custom model to keep <span>•</span> No data migration[cite: 4]
+        Delivered in a 30-minute consultative session <span>•</span> Custom model to keep <span>•</span> No data migration
       </p>
     </div>
   </main>
@@ -674,7 +681,7 @@
         </div>
         <h3 class="feature-headline">Integrate With Existing Process Data</h3>
         <p class="feature-desc">
-          Connect directly via 64-bit ODBC across your historians, MES, and lab systems in days — without moving, transforming, or rebuilding historical archives[cite: 4].
+          Connect directly via 64-bit ODBC across your historians, MES, and lab systems in days — without moving, transforming, or rebuilding historical archives.
         </p>
       </div>
 
@@ -688,7 +695,7 @@
         </div>
         <h3 class="feature-headline">Catch Process Drift in Real Time</h3>
         <p class="feature-desc">
-          Apply real-time SPC rules to identify meaningful process variation as it happens — giving operators time to investigate and act before issues affect product quality[cite: 4].
+          Apply real-time SPC rules to identify meaningful process variation as it happens — giving operators time to investigate and act before issues affect product quality.
         </p>
       </div>
 
@@ -703,7 +710,7 @@
         </div>
         <h3 class="feature-headline">Put Advanced SPC in Your Team’s Hands</h3>
         <p class="feature-desc">
-          Equip process engineers and plant chemists to run capability analysis, including Cp/Cpk, independently — without relying on a dedicated data science team[cite: 4].
+          Equip process engineers and plant chemists to run capability analysis, including Cp/Cpk, independently — without relying on a dedicated data science team.
         </p>
       </div>
 
@@ -716,7 +723,7 @@
         </div>
         <h3 class="feature-headline">Preserve What Your Team Has Learned</h3>
         <p class="feature-desc">
-          Capture assignable causes and corrective actions alongside process data — creating a searchable record of plant-level knowledge that helps teams find proven solutions when experienced staff move on[cite: 4].
+          Capture assignable causes and corrective actions alongside process data — creating a searchable record of plant-level knowledge that helps teams find proven solutions when experienced staff move on.
         </p>
       </div>
     </div>
@@ -728,69 +735,61 @@
       <div class="impact-eyebrow">Operational Impact</div>
       <h2 class="impact-title">What Changes When Operators Trust the Alarms</h2>
       <p class="impact-subtitle">
-        When your team trusts the alarms, they focus on actionable signals — and leave stable processes alone[cite: 4].
+        When your team trusts the alarms, they focus on actionable signals — and leave stable processes alone.
       </p>
     </div>
 
-    <!-- 4-Card Horizontal Metric Strip -->
-    <div class="impact-grid">
-      <!-- Card 1: Yield -->
-      <div class="impact-card">
-        <div class="impact-metric-tag">Yield Protection</div>
-        <h3 class="impact-card-title">Protect Product Yield</h3>
-        <p class="impact-card-desc">
-          Catch meaningful process variation while the line is running, giving teams time to investigate and act before issues affect yield[cite: 4].
+    <!-- 4 Borderless Impact Columns -->
+    <div class="impact-open-grid">
+      <div class="impact-item">
+        <span class="impact-category">Yield Protection</span>
+        <h3 class="impact-item-title">Protect Product Yield</h3>
+        <p class="impact-item-desc">
+          Catch meaningful process variation while the line is running, giving teams time to investigate and act before issues affect yield.
         </p>
       </div>
 
-      <!-- Card 2: Waste -->
-      <div class="impact-card">
-        <div class="impact-metric-tag">Waste Reduction</div>
-        <h3 class="impact-card-title">Reduce Material Waste</h3>
-        <p class="impact-card-desc">
-          Reduce unnecessary process adjustments by helping operators distinguish meaningful process variation from normal variation[cite: 4].
+      <div class="impact-item">
+        <span class="impact-category">Waste Reduction</span>
+        <h3 class="impact-item-title">Reduce Material Waste</h3>
+        <p class="impact-item-desc">
+          Reduce unnecessary process adjustments by helping operators distinguish meaningful process variation from normal variation.
         </p>
       </div>
 
-      <!-- Card 3: Downtime -->
-      <div class="impact-card">
-        <div class="impact-metric-tag">Uptime Assurance</div>
-        <h3 class="impact-card-title">Reduce Unplanned Downtime</h3>
-        <p class="impact-card-desc">
-          Spot pattern-rule violations early so operations and engineering can investigate process deviations before they escalate[cite: 4].
+      <div class="impact-item">
+        <span class="impact-category">Uptime Assurance</span>
+        <h3 class="impact-item-title">Reduce Unplanned Downtime</h3>
+        <p class="impact-item-desc">
+          Spot pattern-rule violations early so operations and engineering can investigate process deviations before they escalate.
         </p>
       </div>
 
-      <!-- Card 4: Out-of-Spec -->
-      <div class="impact-card">
-        <div class="impact-metric-tag">Quality Control</div>
-        <h3 class="impact-card-title">Minimize Out-of-Spec Product</h3>
-        <p class="impact-card-desc">
-          Monitor SPC limits and specification breaches continuously, giving teams earlier visibility into process conditions that can affect product quality[cite: 4].
+      <div class="impact-item">
+        <span class="impact-category">Quality Control</span>
+        <h3 class="impact-item-title">Minimize Out-of-Spec</h3>
+        <p class="impact-item-desc">
+          Monitor SPC limits and specification breaches continuously, giving teams earlier visibility into conditions that degrade quality.
         </p>
       </div>
     </div>
 
-    <!-- Real-World Validation / Proof Banner -->
-    <div class="proof-banner">
-      <!-- Left: BI vs Live SPC Quote -->
-      <div class="proof-col quote-col">
-        <span class="proof-label">Live SPC vs. Yesterday's BI</span>
-        <blockquote class="proof-quote">
-          “Power BI tells you what happened; NWA tells you what is happening now and alerts the right person before it becomes a problem.”[cite: 4]
+    <!-- Asymmetrical Proof Row -->
+    <div class="proof-contrast-wrap">
+      <!-- Left: Grounded Quote Callout -->
+      <div class="contrast-quote">
+        <span class="label-orange">Live SPC vs. Yesterday's BI</span>
+        <blockquote class="quote-body">
+          “Power BI tells you what happened; NWA tells you what is happening now and alerts the right person before it becomes a problem.”
         </blockquote>
       </div>
 
-      <!-- Divider line -->
-      <div class="proof-divider"></div>
-
-      <!-- Right: Dow Deployment Proof Point -->
-      <div class="proof-col stat-col">
-        <span class="proof-label">Proven Floor Deployment</span>
-        <h4 class="proof-stat-title">26 Plant Databases. Four Days.</h4>
-        <p class="proof-stat-desc">
-          Dow connected 26 plant databases in four days[cite: 4].<br />
-          <strong>No data migration. No dedicated data science team required.[cite: 4]</strong>
+      <!-- Right: Dow Deployment Proof Card -->
+      <div class="contrast-stat-card">
+        <span class="label-blue">Proven Deployment</span>
+        <div class="big-stat-number">26 <span class="stat-unit">Databases</span> / 4 <span class="stat-unit">Days</span></div>
+        <p class="stat-body">
+          Dow connected 26 disparate plant databases in four days with zero data migration and no data science overhead.
         </p>
       </div>
     </div>
