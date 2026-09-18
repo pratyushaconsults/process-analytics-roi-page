@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWA | Real-Time SPC & Alarm Noise Reduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #09111e;
+      --bg-surface: #101c2e;
+      --bg-card: #162438;
+      --border: #23354d;
+      --text-main: #f0f4f8;
+      --text-muted: #94a3b8;
+      --orange: #ff6b35;
+      --orange-hover: #fa571d;
+      --teal: #00b4d8;
+      --green: #2ec4b6;
+      --red-alert: #ef476f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--orange);
+      background: rgba(255, 107, 53, 0.1);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 .accent-text {
+      color: var(--orange);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 2.5rem auto;
+      font-weight: 300;
+    }
+
+    /* Alarm Interactive Filter Card */
+    .interactive-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 0 auto 3rem auto;
+      max-width: 850px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .alarm-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-box {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .metric-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-number.red {
+      color: var(--red-alert);
+    }
+
+    .metric-number.green {
+      color: var(--green);
+    }
+
+    .metric-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .slider-wrap {
+      margin-top: 1rem;
+    }
+
+    .slider-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--orange);
+    }
+
+    /* Feature Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .pillar-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillar-title::before {
+      content: "•";
+      color: var(--orange);
+      font-size: 1.4rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Over-adjustment Tax Section */
+    .context-block {
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-dark) 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .context-block h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .context-block p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Proof Metrics */
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+      margin: 3rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+
+    .proof-item h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .proof-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Booking Section */
+    .booking-section {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      margin: 3rem 0;
+      align-items: start;
+    }
+
+    .workshop-details h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .workshop-details p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .agenda-list {
+      list-style: none;
+    }
+
+    .agenda-list li {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .agenda-list li strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .agenda-list li::before {
+      content: "✓";
+      color: var(--orange);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* Form */
+    .booking-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: #0b1523;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--orange);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #ffffff;
+      border: none;
+      padding: 0.95rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-submit:hover {
+      background: var(--orange-hover);
+    }
+
+    .form-disclaimer {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .booking-section { grid-template-columns: 1fr; }
+      .alarm-metrics { grid-template-columns: 1fr; }
+      .proof-strip { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">NWA <span>SPC INTELLIGENCE</span></div>
+    <div class="nav-tag">Used by 35% of Forbes 1000 Manufacturers</div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="eyebrow">Continuous & Batch Process Intelligence</div>
+      <h1>
+        Your operators aren’t ignoring alarms.
+        <span class="accent-text">They’re ignoring bad ones.</span>
+      </h1>
+      <p class="hero-sub">
+        A thousand alarms a day, most of them meaningless noise. Here is what happens when statistical rules filter the flood down to the critical alerts that actually threaten yield, scrap, and compliance.
+      </p>
+
+      <!-- Alarm Noise Interactive Filter -->
+      <div class="interactive-card">
+        <div class="alarm-metrics">
+          <div class="metric-box">
+            <div class="metric-number red" id="unfilteredCount">1,000+</div>
+            <div class="metric-label">Unfiltered Historian & DCS Alerts / Day</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-number green" id="spcCount">7</div>
+            <div class="metric-label">Statistically Confirmed SPC Breaches</div>
+          </div>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-label">
+            <span>Raw Instrument Noise</span>
+            <span>NWA Statistical Filter Active</span>
+          </div>
+          <input type="range" id="filterSlider" min="0" max="100" value="100" oninput="updateAlarmSimulation(this.value)">
+        </div>
+      </div>
+    </section>
+
+    <!-- One-Liner Feature Pillars -->
+    <section class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-title">Zero Data Migration</div>
+        <div class="pillar-desc">Plugs directly via 64-bit ODBC to PI, LIMS, MES, and SAP in days—no historian archives moved or rebuilt.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-title">Live SPC vs. Yesterday’s BI</div>
+        <div class="pillar-desc">Generic BI tells you what spoiled yesterday; NWA checks Nelson & Western Electric rules live before batches drift out of spec.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-title">No Data Scientists Required</div>
+        <div class="pillar-desc">Engineered for chemical and process engineers on day one, avoiding complex multivariate tools that sit unused.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-title">Permanent Fix Capture (ACCA)</div>
+        <div class="pillar-desc">Attaches causes and verified corrective actions directly to live trends so line knowledge never walks out the door.</div>
+      </div>
+    </section>
+
+    <!-- Operational Reality: The Over-Adjustment Tax -->
+    <section class="context-block">
+      <h2>The Real Hidden Tax: Manual Over-Adjustment</h2>
+      <p>
+        When operators face hundreds of meaningless alerts per shift, two things happen. First, they tune the system out to keep the line moving. Second—and far worse—they make manual tweaks to feed rates, temperatures, and pressures on processes that were statistically fine.
+      </p>
+      <p>
+        Over-adjusting an in-control process introduces unnecessary variance, directly driving scrap, unplanned downtime, and spec failures. NWA separates normal process variation from actual quality drift so engineers act with confidence.
+      </p>
+    </section>
+
+    <!-- Proof Numbers -->
+    <section class="proof-strip">
+      <div class="proof-item">
+        <h3>5,000+</h3>
+        <p>Active Plants Worldwide</p>
+      </div>
+      <div class="proof-item">
+        <h3>$1B+</h3>
+        <p>Customer Bottom-Line Savings</p>
+      </div>
+      <div class="proof-item">
+        <h3>4 Days</h3>
+        <p>To Connect 26 Live Databases (Dow)</p>
+      </div>
+    </section>
+
+    <!-- 30-Minute Workshop Booking Section -->
+    <section class="booking-section" id="workshop">
+      <div class="workshop-details">
+        <div class="eyebrow">No Gated PDFs • No Sales Deck</div>
+        <h2>See What Clarity Saves Your Site</h2>
+        <p>
+          In 30 minutes, an NWA process specialist will model potential scrap, downtime, and over-adjustment savings using your plant's specific line architecture.
+        </p>
+        <ul class="agenda-list">
+          <li>
+            <strong>1. Architecture Mapping (Min 0–10)</strong>
+            Review your active data infrastructure (OSIsoft PI, LIMS, MES, SAP) with zero migration requirements.
+          </li>
+          <li>
+            <strong>2. Variance & Scrap Modeling (Min 10–20)</strong>
+            Model your plant's scrap and alarm frequency against verified industry benchmarks.
+          </li>
+          <li>
+            <strong>3. Custom Financial Summary (Min 20–30)</strong>
+            Receive an executive-ready ROI and yield impact summary for your plant leadership.
+          </li>
+        </ul>
+      </div>
+
+      <div class="booking-form">
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Work Email</label>
+            <input type="email" required placeholder="engineer@manufacturing.com">
+          </div>
+          <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" required placeholder="e.g., Lead Process Engineer, Quality Manager">
+          </div>
+          <div class="form-group">
+            <label>Primary Plant Historian / Data Store</label>
+            <select required>
+              <option value="">Select your primary historian...</option>
+              <option value="pi">OSIsoft / Aveva PI</option>
+              <option value="lims">Major LIMS (LabWare, STARLIMS, etc.)</option>
+              <option value="mes">MES / SCADA / DCS</option>
+              <option value="sap">SAP / ERP</option>
+              <option value="mixed">Spreadsheets / In-house DBs</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Operating Sites</label>
+            <select required>
+              <option value="1">Single Plant</option>
+              <option value="2-5">2 to 5 Plants</option>
+              <option value="6+">6+ Multi-plant Enterprise</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">Reserve 30-Minute Plant ROI Session</button>
+          <div class="form-disclaimer">Zero migration required • No commitment • Human-in-the-loop</div>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    © Northwest Analytics (Embrace Software). Engineered exclusively for process manufacturing since 1980.
+  </footer>
+
+  <script>
+    function updateAlarmSimulation(val) {
+      const unfilteredEl = document.getElementById('unfilteredCount');
+      const spcEl = document.getElementById('spcCount');
+      
+      const noise = Math.round(1000 * (val / 100));
+      const signals = Math.max(7, Math.round(7 + (100 - val) * 0.2));
+      
+      unfilteredEl.innerText = (noise > 0 ? noise + "+" : "0");
+      spcEl.innerText = (val > 10 ? "7" : "1,000+");
+      
+      if (val < 20) {
+        unfilteredEl.className = "metric-number red";
+        spcEl.className = "metric-number red";
+      } else {
+        unfilteredEl.className = "metric-number red";
+        spcEl.className = "metric-number green";
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert("Workshop request submitted. Your customized plant model session is reserved.");
+    }
+  </script>
+</body>
+</html>
