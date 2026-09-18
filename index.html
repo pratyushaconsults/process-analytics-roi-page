@@ -394,171 +394,8 @@
       color: var(--text-muted);
       line-height: 1.65;
     }
-  </style>
-</head>
-<body>
 
-  <!-- Top Trust Bar -->
-  <header class="top-bar">
-    <div class="brand">
-      <div class="brand-logo">NWA</div>
-      <span class="brand-tag">SPC Intelligence</span>
-    </div>
-    <div class="trust-pill">
-      Trusted by 35% of Forbes 1000 Manufacturers
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <main class="hero-container">
-    <div class="eyebrow">Continuous &amp; Batch Process Intelligence</div>
-
-    <h1>
-      Your operators aren’t ignoring alarms. <br />
-      <span class="highlight">They’re ignoring bad ones.</span>
-    </h1>
-
-    <p class="subheadline">
-      Connect your existing process data to separate meaningful process signals from instrument noise and catch genuine shifts before they become costly problems. Real-time SPC built for engineers and operators — no data science degree needed.
-    </p>
-
-    <!-- Visual Simulation Component -->
-    <div class="sim-card">
-      <div class="sim-grid">
-        <!-- Left: Unfiltered Noise -->
-        <div class="sim-col unfiltered">
-          <div>
-            <div class="col-title">Unfiltered Instrument Noise</div>
-            <span class="col-subtitle">(DCS / Historian Default)</span>
-            <div class="col-metric" id="raw-count">1,000+</div>
-            <div class="col-metric-label">Alerts / Day</div>
-          </div>
-          <div class="col-impact">
-            <strong>Operational Impact</strong>
-            Chronic alarm fatigue, ignored warnings, and unnecessary manual adjustments on stable lines.
-          </div>
-        </div>
-
-        <!-- Right: NWA Filtered -->
-        <div class="sim-col filtered">
-          <div>
-            <div class="col-title">NWA Statistical Process Control Filter</div>
-            <span class="col-subtitle">(Real-Time Verification)</span>
-            <div class="col-metric" id="nwa-count">7</div>
-            <div class="col-metric-label">Actionable Signals</div>
-          </div>
-          <div class="col-impact">
-            <strong>Operational Impact</strong>
-            Clearer process signals that help teams identify abnormal variation, investigate causes, and act before issues affect product quality.
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Filter Slider -->
-      <div class="slider-track-wrap">
-        <input 
-          type="range" 
-          id="filterSlider" 
-          min="0" 
-          max="100" 
-          value="100" 
-          aria-label="Filter sensitivity level"
-        />
-        <div class="slider-labels">
-          <span>Raw Instrument Noise</span>
-          <span>NWA Statistical Filter Active</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero CTA Trigger -->
-    <div class="cta-wrapper">
-      <a href="#roi-workshop" class="cta-btn">
-        Calculate Your Plant’s ROI
-        <svg viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <p class="micro-copy">
-        Delivered in a 30-minute consultative session <span>•</span> Custom model to keep <span>•</span> No data migration
-      </p>
-    </div>
-  </main>
-
-  <!-- Section 2: Features Grid -->
-  <section class="features-section" id="features">
-    <div class="section-header-block">
-      <h2 class="section-title">
-        Clear Alarms. <span class="cyan">Confident Action.</span>
-      </h2>
-      <p class="section-subtitle">
-        Give engineers and operators the clarity to resolve real issues — and the confidence to leave stable lines alone.
-      </p>
-    </div>
-
-    <div class="features-grid">
-      <!-- Card 1 -->
-      <div class="feature-card">
-        <div class="icon-bubble">
-          <svg viewBox="0 0 24 24">
-            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-          </svg>
-        </div>
-        <h3 class="feature-headline">Integrate With Existing Process Data</h3>
-        <p class="feature-desc">
-          Connect directly via 64-bit ODBC across your historians, MES, and lab systems in days — without moving, transforming, or rebuilding historical archives.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="feature-card">
-        <div class="icon-bubble">
-          <svg viewBox="0 0 24 24">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-          </svg>
-        </div>
-        <h3 class="feature-headline">Catch Process Drift in Real Time</h3>
-        <p class="feature-desc">
-          Apply real-time SPC rules to identify meaningful process variation as it happens — giving operators time to investigate and act before issues affect product quality.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="feature-card">
-        <div class="icon-bubble">
-          <svg viewBox="0 0 24 24">
-            <line x1="18" y1="20" x2="18" y2="10"></line>
-            <line x1="12" y1="20" x2="12" y2="4"></line>
-            <line x1="6" y1="20" x2="6" y2="14"></line>
-          </svg>
-        </div>
-        <h3 class="feature-headline">Put Advanced SPC in Your Team’s Hands</h3>
-        <p class="feature-desc">
-          Equip process engineers and plant chemists to run capability analysis, including Cp/Cpk, independently — without relying on a dedicated data science team.
-        </p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="feature-card">
-        <div class="icon-bubble">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-        </div>
-        <h3 class="feature-headline">Preserve What Your Team Has Learned</h3>
-        <p class="feature-desc">
-          Capture assignable causes and corrective actions alongside process data — creating a searchable record of plant-level knowledge that helps teams find proven solutions when experienced staff move on.
-        </p>
-      </div>
-    </div>
-  </section>
-  </script>
-</body>
-</html>
-/* Section 3: Operational Impact & Proof Banner */
+    /* Section 3: Operational Impact & Proof Banner */
     .impact-section {
       max-width: 1120px;
       margin: 0 auto 100px;
@@ -723,3 +560,256 @@
       margin-top: 4px;
       font-weight: 500;
     }
+  </style>
+</head>
+<body>
+
+  <!-- Top Trust Bar -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-logo">NWA</div>
+      <span class="brand-tag">SPC Intelligence</span>
+    </div>
+    <div class="trust-pill">
+      Trusted by 35% of Forbes 1000 Manufacturers[cite: 4]
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-container">
+    <div class="eyebrow">Continuous &amp; Batch Process Intelligence</div>
+
+    <h1>
+      Your operators aren’t ignoring alarms. <br />
+      <span class="highlight">They’re ignoring bad ones.</span>
+    </h1>
+
+    <p class="subheadline">
+      Connect your existing process data to separate meaningful process signals from instrument noise and catch genuine shifts before they become costly problems[cite: 4]. Real-time SPC built for engineers and operators — no data science degree needed[cite: 4].
+    </p>
+
+    <!-- Visual Simulation Component -->
+    <div class="sim-card">
+      <div class="sim-grid">
+        <!-- Left: Unfiltered Noise -->
+        <div class="sim-col unfiltered">
+          <div>
+            <div class="col-title">Unfiltered Instrument Noise</div>
+            <span class="col-subtitle">(DCS / Historian Default)</span>
+            <div class="col-metric" id="raw-count">1,000+</div>
+            <div class="col-metric-label">Alerts / Day</div>
+          </div>
+          <div class="col-impact">
+            <strong>Operational Impact</strong>
+            Chronic alarm fatigue, ignored warnings, and unnecessary manual adjustments on stable lines[cite: 4].
+          </div>
+        </div>
+
+        <!-- Right: NWA Filtered -->
+        <div class="sim-col filtered">
+          <div>
+            <div class="col-title">NWA Statistical Process Control Filter</div>
+            <span class="col-subtitle">(Real-Time Verification)</span>
+            <div class="col-metric" id="nwa-count">7</div>
+            <div class="col-metric-label">Actionable Signals</div>
+          </div>
+          <div class="col-impact">
+            <strong>Operational Impact</strong>
+            Clearer process signals that help teams identify abnormal variation, investigate causes, and act before issues affect product quality[cite: 4].
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Filter Slider -->
+      <div class="slider-track-wrap">
+        <input 
+          type="range" 
+          id="filterSlider" 
+          min="0" 
+          max="100" 
+          value="100" 
+          aria-label="Filter sensitivity level"
+        />
+        <div class="slider-labels">
+          <span>Raw Instrument Noise</span>
+          <span>NWA Statistical Filter Active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero CTA Trigger -->
+    <div class="cta-wrapper">
+      <a href="#roi-workshop" class="cta-btn">
+        Calculate Your Plant’s ROI
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <p class="micro-copy">
+        Delivered in a 30-minute consultative session <span>•</span> Custom model to keep <span>•</span> No data migration[cite: 4]
+      </p>
+    </div>
+  </main>
+
+  <!-- Section 2: Features Grid -->
+  <section class="features-section" id="features">
+    <div class="section-header-block">
+      <h2 class="section-title">
+        Clear Alarms. <span class="cyan">Confident Action.</span>
+      </h2>
+      <p class="section-subtitle">
+        Give engineers and operators the clarity to resolve real issues — and the confidence to leave stable lines alone.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Integrate With Existing Process Data</h3>
+        <p class="feature-desc">
+          Connect directly via 64-bit ODBC across your historians, MES, and lab systems in days — without moving, transforming, or rebuilding historical archives[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Catch Process Drift in Real Time</h3>
+        <p class="feature-desc">
+          Apply real-time SPC rules to identify meaningful process variation as it happens — giving operators time to investigate and act before issues affect product quality[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Put Advanced SPC in Your Team’s Hands</h3>
+        <p class="feature-desc">
+          Equip process engineers and plant chemists to run capability analysis, including Cp/Cpk, independently — without relying on a dedicated data science team[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Preserve What Your Team Has Learned</h3>
+        <p class="feature-desc">
+          Capture assignable causes and corrective actions alongside process data — creating a searchable record of plant-level knowledge that helps teams find proven solutions when experienced staff move on[cite: 4].
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Operational Impact Strip & Proof Banner -->
+  <section class="impact-section" id="impact">
+    <div class="impact-header-block">
+      <div class="impact-eyebrow">Operational Impact</div>
+      <h2 class="impact-title">What Changes When Operators Trust the Alarms</h2>
+      <p class="impact-subtitle">
+        When your team trusts the alarms, they focus on actionable signals — and leave stable processes alone[cite: 4].
+      </p>
+    </div>
+
+    <!-- 4-Card Horizontal Metric Strip -->
+    <div class="impact-grid">
+      <!-- Card 1: Yield -->
+      <div class="impact-card">
+        <div class="impact-metric-tag">Yield Protection</div>
+        <h3 class="impact-card-title">Protect Product Yield</h3>
+        <p class="impact-card-desc">
+          Catch meaningful process variation while the line is running, giving teams time to investigate and act before issues affect yield[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 2: Waste -->
+      <div class="impact-card">
+        <div class="impact-metric-tag">Waste Reduction</div>
+        <h3 class="impact-card-title">Reduce Material Waste</h3>
+        <p class="impact-card-desc">
+          Reduce unnecessary process adjustments by helping operators distinguish meaningful process variation from normal variation[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 3: Downtime -->
+      <div class="impact-card">
+        <div class="impact-metric-tag">Uptime Assurance</div>
+        <h3 class="impact-card-title">Reduce Unplanned Downtime</h3>
+        <p class="impact-card-desc">
+          Spot pattern-rule violations early so operations and engineering can investigate process deviations before they escalate[cite: 4].
+        </p>
+      </div>
+
+      <!-- Card 4: Out-of-Spec -->
+      <div class="impact-card">
+        <div class="impact-metric-tag">Quality Control</div>
+        <h3 class="impact-card-title">Minimize Out-of-Spec Product</h3>
+        <p class="impact-card-desc">
+          Monitor SPC limits and specification breaches continuously, giving teams earlier visibility into process conditions that can affect product quality[cite: 4].
+        </p>
+      </div>
+    </div>
+
+    <!-- Real-World Validation / Proof Banner -->
+    <div class="proof-banner">
+      <!-- Left: BI vs Live SPC Quote -->
+      <div class="proof-col quote-col">
+        <span class="proof-label">Live SPC vs. Yesterday's BI</span>
+        <blockquote class="proof-quote">
+          “Power BI tells you what happened; NWA tells you what is happening now and alerts the right person before it becomes a problem.”[cite: 4]
+        </blockquote>
+      </div>
+
+      <!-- Divider line -->
+      <div class="proof-divider"></div>
+
+      <!-- Right: Dow Deployment Proof Point -->
+      <div class="proof-col stat-col">
+        <span class="proof-label">Proven Floor Deployment</span>
+        <h4 class="proof-stat-title">26 Plant Databases. Four Days.</h4>
+        <p class="proof-stat-desc">
+          Dow connected 26 plant databases in four days[cite: 4].<br />
+          <strong>No data migration. No dedicated data science team required.[cite: 4]</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Slider Script -->
+  <script>
+    const slider = document.getElementById('filterSlider');
+    const rawDisplay = document.getElementById('raw-count');
+    const nwaDisplay = document.getElementById('nwa-count');
+
+    if (slider && rawDisplay && nwaDisplay) {
+      slider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        const alarms = Math.round(1000 - ((1000 - 7) * (val / 100)));
+        nwaDisplay.textContent = alarms > 50 ? alarms : '7';
+        rawDisplay.textContent = '1,000+';
+      });
+    }
+  </script>
+</body>
+</html>
