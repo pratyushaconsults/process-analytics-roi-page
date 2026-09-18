@@ -32,6 +32,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--bg-dark);
@@ -127,7 +131,7 @@
       line-height: 1.7;
     }
 
-    /* Simulation Table / Visual Card Component */
+    /* Simulation Component */
     .sim-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -432,7 +436,6 @@
       line-height: 1.6;
     }
 
-    /* Open Borderless 4-Column Strip */
     .impact-open-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -487,7 +490,6 @@
       line-height: 1.65;
     }
 
-    /* Proof Contrast Row */
     .proof-contrast-wrap {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -567,6 +569,171 @@
       color: var(--text-muted);
       line-height: 1.6;
     }
+
+    /* Section 4: ROI Workshop */
+    .workshop-section {
+      max-width: 1120px;
+      margin: 40px auto 100px;
+      padding: 0 24px;
+    }
+
+    .workshop-card {
+      background: #0a1524;
+      border: 1px solid #1c3554;
+      border-radius: 20px;
+      padding: 56px 48px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .workshop-card {
+        padding: 32px 24px;
+      }
+    }
+
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .workshop-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .workshop-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      margin-bottom: 12px;
+    }
+
+    .workshop-title {
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .workshop-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .deliverables-header {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-cyan);
+      margin-bottom: 18px;
+    }
+
+    .deliverable-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .deliverable-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .deliverable-item strong {
+      display: block;
+      color: #ffffff;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .deliverable-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .workshop-form-wrap {
+      background: #0e1c2e;
+      border: 1px solid #1f3b5e;
+      border-radius: 14px;
+      padding: 32px;
+    }
+
+    .form-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: #08111d;
+      border: 1px solid #233d5e;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    .submit-btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+      font-size: 0.98rem;
+    }
+
+    .form-footer-meta {
+      margin-top: 16px;
+      font-size: 0.74rem;
+      color: var(--text-dim);
+      text-align: center;
+      line-height: 1.6;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
   </style>
 </head>
 <body>
@@ -595,7 +762,7 @@
       Connect your existing process data to separate meaningful process signals from instrument noise and catch genuine shifts before they become costly problems. Real-time SPC built for engineers and operators — no data science degree needed.
     </p>
 
-    <!-- Visual Simulation Component -->
+    <!-- Simulation Component -->
     <div class="sim-card">
       <div class="sim-grid">
         <!-- Left: Unfiltered Noise -->
@@ -627,7 +794,7 @@
         </div>
       </div>
 
-      <!-- Interactive Filter Slider -->
+      <!-- Filter Slider -->
       <div class="slider-track-wrap">
         <input 
           type="range" 
@@ -767,16 +934,16 @@
 
       <div class="impact-item">
         <span class="impact-category">Quality Control</span>
-        <h3 class="impact-item-title">Minimize Out-of-Spec</h3>
+        <h3 class="impact-item-title">Minimize Out-of-Spec Product</h3>
         <p class="impact-item-desc">
-          Monitor SPC limits and specification breaches continuously, giving teams earlier visibility into conditions that degrade quality.
+          Monitor SPC limits and specification breaches continuously, giving teams earlier visibility into process conditions that can affect product quality.
         </p>
       </div>
     </div>
 
     <!-- Asymmetrical Proof Row -->
     <div class="proof-contrast-wrap">
-      <!-- Left: Grounded Quote Callout -->
+      <!-- Left: BI vs Live SPC Quote -->
       <div class="contrast-quote">
         <span class="label-orange">Live SPC vs. Yesterday's BI</span>
         <blockquote class="quote-body">
@@ -789,8 +956,92 @@
         <span class="label-blue">Proven Deployment</span>
         <div class="big-stat-number">26 <span class="stat-unit">Databases</span> / 4 <span class="stat-unit">Days</span></div>
         <p class="stat-body">
-          Dow connected 26 disparate plant databases in four days with zero data migration and no data science overhead.
+          Dow connected 26 plant databases in four days.<br />
+          No data migration. No dedicated data science team required.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: ROI Workshop Conversion Section -->
+  <section class="workshop-section" id="roi-workshop">
+    <div class="workshop-card">
+      <div class="workshop-grid">
+        <!-- Left Column: Value Proposition & Deliverables -->
+        <div class="workshop-info">
+          <div class="workshop-eyebrow">ROI Workshop</div>
+          <h2 class="workshop-title">Quantify the Cost of Noise in Your Plant</h2>
+          <p class="workshop-desc">
+            In a focused 30-minute working session, we map your current alarm volume, scrap rates, and data infrastructure to model potential operational savings across your plant.
+          </p>
+
+          <div class="deliverables-block">
+            <h4 class="deliverables-header">What You'll Receive</h4>
+
+            <div class="deliverable-item">
+              <div class="deliverable-num">01</div>
+              <div>
+                <strong>30-Minute Operational Review</strong>
+                <p>A focused review of your plant's data sources, process environment, and real-time alarming challenges.</p>
+              </div>
+            </div>
+
+            <div class="deliverable-item">
+              <div class="deliverable-num">02</div>
+              <div>
+                <strong>Custom Financial Model to Keep</strong>
+                <p>A plant-specific model showing potential savings across yield, scrap, and downtime.</p>
+              </div>
+            </div>
+
+            <div class="deliverable-item">
+              <div class="deliverable-num">03</div>
+              <div>
+                <strong>ODBC Integration Assessment</strong>
+                <p>A practical look at connecting directly to your existing historians and plant systems — without requiring data migration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Intake Form -->
+        <div class="workshop-form-wrap">
+          <form class="workshop-form" onsubmit="event.preventDefault(); alert('Request received. A process specialist will reach out shortly.');">
+            <h3 class="form-title">Request Plant ROI Model</h3>
+
+            <div class="form-group">
+              <label for="workEmail">Work Email</label>
+              <input type="email" id="workEmail" name="email" placeholder="engineer@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="historianDb">Primary Historian / Database</label>
+              <input type="text" id="historianDb" name="database" placeholder="OSIsoft PI, AspenTech, MES, SQL, Excel" required />
+            </div>
+
+            <div class="form-group">
+              <label for="processType">Process Architecture</label>
+              <select id="processType" name="processType" required>
+                <option value="" disabled selected>Select Process Type</option>
+                <option value="continuous">Continuous Manufacturing</option>
+                <option value="batch">Batch Processing</option>
+                <option value="discrete">Discrete / Hybrid</option>
+              </select>
+            </div>
+
+            <button type="submit" class="cta-btn submit-btn">
+              Calculate Your Plant's ROI →
+            </button>
+
+            <div class="form-footer-meta">
+              <span>Delivered by a process analytics specialist</span>
+              <span>•</span>
+              <span>No software installation required</span>
+              <span>•</span>
+              <span>No data migration</span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
