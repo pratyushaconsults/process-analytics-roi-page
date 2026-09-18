@@ -21,7 +21,9 @@
       --text-dim: #64748b;
       --card-highlight: #13243a;
       --danger-red: #ef4444;
-      --success-green: #10b981;
+      --card-feature-bg: #0d1e33;
+      --card-feature-border: #223c5b;
+      --icon-bubble-bg: rgba(56, 189, 248, 0.12);
     }
 
     * {
@@ -86,7 +88,7 @@
     .hero-container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 60px 24px 80px;
+      padding: 60px 24px 70px;
       text-align: center;
     }
 
@@ -119,7 +121,7 @@
     .subheadline {
       font-size: clamp(1.02rem, 1.8vw, 1.18rem);
       color: var(--text-muted);
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 auto 40px;
       font-weight: 400;
       line-height: 1.7;
@@ -297,57 +299,84 @@
       margin: 0 6px;
     }
 
-    /* Rapid Problem-Solving Pillars */
-    .pillars-grid {
+    /* Section 2: Problem-Solving Features (Reference Design Match) */
+    .features-section {
+      max-width: 1120px;
+      margin: 40px auto 100px;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      max-width: 1100px;
-      margin: 50px auto 0;
-      text-align: left;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
     }
 
-    @media (max-width: 900px) {
-      .pillars-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .pillars-grid {
+    @media (max-width: 768px) {
+      .features-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .pillar-card {
-      background: rgba(15, 28, 45, 0.6);
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 20px;
+    .feature-card {
+      background: var(--card-feature-bg);
+      border: 1px solid var(--card-feature-border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .pillar-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 8px;
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-cyan);
+    }
+
+    .icon-bubble {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--icon-bubble-bg);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      margin-bottom: 22px;
+      color: var(--accent-cyan);
     }
 
-    .pillar-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--accent-orange);
-      display: inline-block;
+    .icon-bubble svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .pillar-desc {
-      font-size: 0.8rem;
+    .feature-headline {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .feature-desc {
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.65;
     }
   </style>
 </head>
@@ -438,38 +467,83 @@
         Delivered in a 30-minute consultative session <span>•</span> Custom model to keep <span>•</span> No data migration
       </p>
     </div>
-
-    <!-- Rapid Objection Preemption Pillars -->
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-title"><span class="pillar-dot"></span> Zero Data Migration</div>
-        <div class="pillar-desc">Plugs directly via 64-bit ODBC to PI, LIMS, MES, and SAP in days—no historian archives moved or rebuilt.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-title"><span class="pillar-dot"></span> Live SPC vs. Yesterday’s BI</div>
-        <div class="pillar-desc">Generic BI tells you what spoiled yesterday; NWA checks Nelson &amp; Western Electric rules live before batches drift out of spec.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-title"><span class="pillar-dot"></span> No Data Scientists Required</div>
-        <div class="pillar-desc">Engineered for chemical and process engineers on day one, avoiding complex multivariate tools that sit unused.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-title"><span class="pillar-dot"></span> Permanent Fix Capture (ACCA)</div>
-        <div class="pillar-desc">Attaches causes and verified corrective actions directly to live trends so line knowledge never walks out the door.</div>
-      </div>
-    </div>
   </main>
 
+  <!-- Section 2: Problem-Solving Features (Reference Card Grid) -->
+  <section class="features-section" id="features">
+    <h2 class="section-title">Solve Process Problems Before They Become Production Problems</h2>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <!-- Database / Plug Icon -->
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Connect Without the Migration Headache</h3>
+        <p class="feature-desc">
+          Connect directly to your existing process data through 64-bit ODBC to OSIsoft PI, LIMS, MES, and SAP — without copying, moving, or rebuilding your archives.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <!-- Real-Time Bell / Alarm Icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Catch Process Drift in Real Time</h3>
+        <p class="feature-desc">
+          Move beyond yesterday’s BI reports. NWA applies Nelson and Western Electric rules in real time to identify meaningful process variation while your team still has time to investigate and act.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <!-- Analytics / Chart Icon -->
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Put Advanced SPC in Your Team’s Hands</h3>
+        <p class="feature-desc">
+          Give process engineers and plant chemists the tools to run advanced capability analysis, including Cp/Cpk, independently — without needing a dedicated data science team.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <div class="icon-bubble">
+          <!-- Shield / Bookmark Fix Icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-headline">Keep Proven Fixes From Walking Out the Door</h3>
+        <p class="feature-desc">
+          ACCA links assignable causes and verified fixes to live process trends, helping teams preserve plant-level knowledge and make proven solutions easier to find when experienced staff move on.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <script>
-    // Live slider interaction connecting noise level to signal count
     const slider = document.getElementById('filterSlider');
     const rawDisplay = document.getElementById('raw-count');
     const nwaDisplay = document.getElementById('nwa-count');
 
     slider.addEventListener('input', (e) => {
       const val = parseInt(e.target.value, 10);
-      
-      // Calculate dynamic count values based on slider position
       const alarms = Math.round(1000 - ((1000 - 7) * (val / 100)));
       nwaDisplay.textContent = alarms > 50 ? alarms : '7';
       rawDisplay.textContent = '1,000+';
