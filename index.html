@@ -299,19 +299,35 @@
       margin: 0 6px;
     }
 
-    /* Section 2: Problem-Solving Features (Reference Design Match) */
+    /* Section 2: Features Grid */
     .features-section {
       max-width: 1120px;
       margin: 40px auto 100px;
       padding: 0 24px;
     }
 
-    .section-title {
+    .section-header-block {
       text-align: center;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      max-width: 760px;
+      margin: 0 auto 48px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 48px;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .section-title span.cyan {
+      color: var(--accent-cyan);
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .features-grid {
@@ -469,15 +485,21 @@
     </div>
   </main>
 
-  <!-- Section 2: Problem-Solving Features (Reference Card Grid) -->
+  <!-- Section 2: Features Grid -->
   <section class="features-section" id="features">
-    <h2 class="section-title">Solve Process Problems Before They Become Production Problems</h2>
+    <div class="section-header-block">
+      <h2 class="section-title">
+        Clear Alarms. <span class="cyan">Confident Action.</span>
+      </h2>
+      <p class="section-subtitle">
+        Give engineers and operators the clarity to resolve real issues — and the confidence to leave stable lines alone.
+      </p>
+    </div>
 
     <div class="features-grid">
       <!-- Card 1 -->
       <div class="feature-card">
         <div class="icon-bubble">
-          <!-- Database / Plug Icon -->
           <svg viewBox="0 0 24 24">
             <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
             <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
@@ -493,7 +515,6 @@
       <!-- Card 2 -->
       <div class="feature-card">
         <div class="icon-bubble">
-          <!-- Real-Time Bell / Alarm Icon -->
           <svg viewBox="0 0 24 24">
             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
             <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -508,7 +529,6 @@
       <!-- Card 3 -->
       <div class="feature-card">
         <div class="icon-bubble">
-          <!-- Analytics / Chart Icon -->
           <svg viewBox="0 0 24 24">
             <line x1="18" y1="20" x2="18" y2="10"></line>
             <line x1="12" y1="20" x2="12" y2="4"></line>
@@ -524,7 +544,6 @@
       <!-- Card 4 -->
       <div class="feature-card">
         <div class="icon-bubble">
-          <!-- Shield / Bookmark Fix Icon -->
           <svg viewBox="0 0 24 24">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
