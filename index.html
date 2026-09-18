@@ -506,9 +506,9 @@
             <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
           </svg>
         </div>
-        <h3 class="feature-headline">Connect Without the Migration Headache</h3>
+        <h3 class="feature-headline">Integrate With Existing Process Data</h3>
         <p class="feature-desc">
-          Connect directly to your existing process data through 64-bit ODBC to OSIsoft PI, LIMS, MES, and SAP — without copying, moving, or rebuilding your archives.
+          Connect directly via 64-bit ODBC across your historians, MES, and lab systems in days — without moving, transforming, or rebuilding historical archives.
         </p>
       </div>
 
@@ -522,7 +522,7 @@
         </div>
         <h3 class="feature-headline">Catch Process Drift in Real Time</h3>
         <p class="feature-desc">
-          Move beyond yesterday’s BI reports. NWA applies Nelson and Western Electric rules in real time to identify meaningful process variation while your team still has time to investigate and act.
+          Apply real-time SPC rules to identify meaningful process variation as it happens — giving operators time to investigate and act before issues affect product quality.
         </p>
       </div>
 
@@ -537,7 +537,7 @@
         </div>
         <h3 class="feature-headline">Put Advanced SPC in Your Team’s Hands</h3>
         <p class="feature-desc">
-          Give process engineers and plant chemists the tools to run advanced capability analysis, including Cp/Cpk, independently — without needing a dedicated data science team.
+          Equip process engineers and plant chemists to run capability analysis, including Cp/Cpk, independently — without relying on a dedicated data science team.
         </p>
       </div>
 
@@ -548,25 +548,13 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
-        <h3 class="feature-headline">Keep Proven Fixes From Walking Out the Door</h3>
+        <h3 class="feature-headline">Preserve What Your Team Has Learned</h3>
         <p class="feature-desc">
-          ACCA links assignable causes and verified fixes to live process trends, helping teams preserve plant-level knowledge and make proven solutions easier to find when experienced staff move on.
+          Capture assignable causes and corrective actions alongside process data — creating a searchable record of plant-level knowledge that helps teams find proven solutions when experienced staff move on.
         </p>
       </div>
     </div>
   </section>
-
-  <script>
-    const slider = document.getElementById('filterSlider');
-    const rawDisplay = document.getElementById('raw-count');
-    const nwaDisplay = document.getElementById('nwa-count');
-
-    slider.addEventListener('input', (e) => {
-      const val = parseInt(e.target.value, 10);
-      const alarms = Math.round(1000 - ((1000 - 7) * (val / 100)));
-      nwaDisplay.textContent = alarms > 50 ? alarms : '7';
-      rawDisplay.textContent = '1,000+';
-    });
   </script>
 </body>
 </html>
